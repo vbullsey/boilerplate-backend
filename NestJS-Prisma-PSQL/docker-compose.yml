@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: vbullsey
+      POSTGRES_PASSWORD: 7292
+      POSTGRES_DB: allfood
+    env_file:
+      - .env
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - allfood
+
+volumes:
+  postgres:
+
+networks:
+  allfood:
